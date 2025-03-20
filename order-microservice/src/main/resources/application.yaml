@@ -1,0 +1,48 @@
+server:
+  port: 8081
+
+logging:
+  level:
+    com.example.order: DEBUG
+    root: INFO
+spring:
+  application.name: order-microservice
+  datasource:
+    url: jdbc:h2:mem:orderdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true                            # Enable H2 console
+      path: /h2-console                        # Console path (accessible at: http://localhost:8081/h2-console)
+  temporal:
+    connection: # Temporal server connection configuration
+      target: 127.0.0.1:7233 # The address of the Temporal server (here running locally on port 7233)
+      target.namespace: default # The default namespace in Temporal where workflows will be executed
+
+    workers: # Configuration of the Temporal workers
+      - task-queue: order-tasks # The task queue for this specific worker. Workflows and activities will be processed from this queue.
+        capacity: # Configuration of the worker's capacity
+          max-concurrent-workflow-task-pollers: 6 # The maximum number of "pollers" that can process workflow tasks concurrently
+          max-concurrent-activity-task-pollers: 6 # The maximum number of "pollers" that can process activity tasks concurrently
+        rate-limits: # Rate limits for activities and workflows
+          max-worker-activities-per-second: 0 # The maximum number of activities this worker can process per second (0 means no limit)
+          max-task-queue-activities-per-second: 0 # The maximum number of activities that can be processed per second from the task queue (0 means no limit)
+
+    workflow-cache: # Configuration of the workflow cache
+      max-instances: 10 # The maximum number of workflow instances that can be cached concurrently
+      max-threads: 10 # The maximum number of threads that can be used to execute workflows concurrently in the cache
+
+    workersAutoDiscovery: # Enables automatic discovery of annotated Temporal components (such as workflows, activities, etc.)
+      packages: com.example.order # The package to scan for classes annotated with @WorkflowImpl and @ActivityImpl to automatically register them in Temporal
+
+
+api:
+  payment-service:
+      url: http://localhost:8083/api/payment-management
+  product-service:
+      url: http://localhost:8082/api/product-management
