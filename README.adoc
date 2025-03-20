@@ -1,0 +1,67 @@
+= Spring Boot & Temporal POC
+
+== Overview
+This project demonstrates how to integrate Temporal with a Spring Boot application. Temporal is a durable execution system that manages workflows and activities, ensuring reliable task execution.
+
+== Project Structure
+This POC consists of three microservices:
+
+1. **Order Microservice**: This service manages the main workflow using Temporal. It initiates and coordinates the execution of workflows.
+2. **Payment Microservice**: Handles payment processing and validate and confirm payments.
+3. **Product Microservice**: Manages product inventory and stock.
+
+== Prerequisites
+- Java 17 or later
+- Maven 3.8+
+- Docker (for running Temporal service)
+- An IDE (e.g., IntelliJ IDEA or VS Code)
+
+== Setup and Configuration
+
+=== 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/spring-boot-temporal-poc.git
+cd spring-boot-temporal-poc
+```
+
+=== 2. Start Temporal Service
+This will start Temporal server, including its dependencies like PostgreSQL and UI.
+
+Alternatively, use the official Temporal CLI:
+
+Note: All required docker-compose files are available in the docker-compose-main folder.
+
+=== 3. Run the Microservices
+Each microservice must be started separately. Open three terminal windows and run:
+
+- **Order Microservice**:
+  ```bash
+  cd order-microservice
+  mvn spring-boot:run
+  ```
+
+- **Payment Microservice**:
+  ```bash
+  cd payment-microservice
+  mvn spring-boot:run
+  ```
+
+- **Product Microservice**:
+  ```bash
+  cd product-microservice
+  mvn spring-boot:run
+  ```
+
+=== 4. Initialize the Workflow
+1. **Create a product** in the Product Microservice before placing an order.
+2. **Place an order** using the Order Microservice, which will trigger the Temporal workflow.
+
+== Usage
+1. Start a workflow using a REST API or a test runner.
+2. Monitor executions via Temporal UI: `http://localhost:8088`.
+3. Check logs for workflow execution.
+
+== References
+- [Temporal Documentation](https://docs.temporal.io)
+- [Spring Boot Documentation](https://spring.io/projects/spring-boot)
+
