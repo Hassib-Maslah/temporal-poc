@@ -20,7 +20,7 @@ This POC consists of three microservices:
 
 === 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/spring-boot-temporal-poc.git
+git clone https://github.com/Hassib-Maslah/temporal-poc.git
 cd spring-boot-temporal-poc
 ```
 
@@ -62,6 +62,6 @@ Each microservice must be started separately. Open three terminal windows and ru
 3. Check logs for workflow execution.
 
 == References
-- [Temporal Documentation](https://docs.temporal.io)
-- [Spring Boot Documentation](https://spring.io/projects/spring-boot)
+- https://docs.temporal.io[Temporal Documentation]
+- https://spring.io/projects/spring-boot[Spring Boot Documentation]
 
