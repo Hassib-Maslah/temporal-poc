@@ -1,5 +1,6 @@
 package com.example.order.dto;
 
+import com.example.order.enums.Status;
 import lombok.*;
 
 @Setter
@@ -13,4 +14,5 @@ public class OrderDTO {
     private Long productId;
     private Integer quantity;
     private Float totalAmount;
+    private Status status;
 }

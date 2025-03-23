@@ -21,9 +21,10 @@ public class OrderActivityImpl implements OrderActivity {
     private final OrderMapper orderMapper;
 
     @Override
-    public void saveOrder(OrderDTO orderDTO) {
+    public OrderDTO saveOrder(OrderDTO orderDTO) {
         log.info("OrderActivityImpl.saveOrder(..) started with total amount paid = {}", orderDTO.getTotalAmount());
         Order order = orderMapper.toEntity(orderDTO);
-        orderRepository.save(order);
+        order = orderRepository.save(order);
+        return orderMapper.toDto(order);
     }
 }

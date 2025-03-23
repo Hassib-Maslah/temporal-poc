@@ -7,5 +7,5 @@ import io.temporal.activity.ActivityMethod;
 @ActivityInterface
 public interface OrderActivity {
     @ActivityMethod
-    void saveOrder(OrderDTO orderDTO);
+    OrderDTO saveOrder(OrderDTO orderDTO);
 }

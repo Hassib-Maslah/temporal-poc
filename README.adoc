@@ -21,7 +21,7 @@ This POC consists of three microservices:
 === 1. Clone the Repository
 ```bash
 git clone https://github.com/Hassib-Maslah/temporal-poc.git
-cd spring-boot-temporal-poc
+cd temporal-poc
 ```
 
 === 2. Start Temporal Service

@@ -1,6 +1,7 @@
 package com.example.order.controller;
 
 import com.example.order.dto.OrderDTO;
+import com.example.order.enums.Status;
 import com.example.order.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +17,13 @@ public class OrderController {
     private final OrderService orderService;
 
     @PostMapping(consumes = "application/json")
-    public ResponseEntity<Void> createOrder(@RequestBody OrderDTO dto) {
-        orderService.createOrder(dto);
+    public ResponseEntity<String> createOrder(@RequestBody OrderDTO dto) {
+        return ResponseEntity.ok(orderService.createOrder(dto));
+    }
+
+    @PutMapping(value = "/{workflowId}", consumes = "application/json")
+    public ResponseEntity<Void> updateOrderStatus(@PathVariable String workflowId, @RequestBody Status status) {
+        orderService.updateStatus(status, workflowId);
         return ResponseEntity.noContent().build();
     }
 

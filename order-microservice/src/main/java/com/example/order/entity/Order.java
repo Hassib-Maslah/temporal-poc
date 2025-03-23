@@ -1,5 +1,6 @@
 package com.example.order.entity;
 
+import com.example.order.enums.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,4 +21,6 @@ public class Order {
     private String productId;
     private Integer quantity;
     private Float totalAmount;
+    @Enumerated(EnumType.STRING)
+    private Status status = Status.INITIALIZED;
 }
