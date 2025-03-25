@@ -1,0 +1,77 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36" version="26.1.3">
+  <diagram name="Page-1" id="2YBvvXClWsGukQMizWep">
+    <mxGraphModel dx="1050" dy="563" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="HymEKk5p5rcyXg-cp9Tz-8" value="Payment Microservice" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="570" y="270" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HymEKk5p5rcyXg-cp9Tz-10" value="Product&lt;br&gt;Microservice" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="570" y="370" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HymEKk5p5rcyXg-cp9Tz-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="HymEKk5p5rcyXg-cp9Tz-2" target="HymEKk5p5rcyXg-cp9Tz-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HymEKk5p5rcyXg-cp9Tz-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="HymEKk5p5rcyXg-cp9Tz-2" target="HymEKk5p5rcyXg-cp9Tz-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HymEKk5p5rcyXg-cp9Tz-17" value="call API (REST)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="HymEKk5p5rcyXg-cp9Tz-16">
+          <mxGeometry x="-0.5115" y="-1" relative="1" as="geometry">
+            <mxPoint x="-8" y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HymEKk5p5rcyXg-cp9Tz-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.628;exitY=0.025;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="HymEKk5p5rcyXg-cp9Tz-2" target="HymEKk5p5rcyXg-cp9Tz-31">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="370" y="220" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="263" y="260" />
+              <mxPoint x="370" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HymEKk5p5rcyXg-cp9Tz-20" value="start workflow (gRPC)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="HymEKk5p5rcyXg-cp9Tz-19">
+          <mxGeometry x="-0.14" y="2" relative="1" as="geometry">
+            <mxPoint x="13" y="-8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HymEKk5p5rcyXg-cp9Tz-2" value="Order Microservice" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="200" y="320" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HymEKk5p5rcyXg-cp9Tz-21" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="HymEKk5p5rcyXg-cp9Tz-2" target="HymEKk5p5rcyXg-cp9Tz-31">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="190" y="440" as="sourcePoint" />
+            <mxPoint x="280.3599999999999" y="118.65999999999997" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="225" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HymEKk5p5rcyXg-cp9Tz-22" value="Poll (gRPC)" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="HymEKk5p5rcyXg-cp9Tz-21">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="35" y="-32" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HymEKk5p5rcyXg-cp9Tz-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="HymEKk5p5rcyXg-cp9Tz-32" target="HymEKk5p5rcyXg-cp9Tz-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="78" y="340" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HymEKk5p5rcyXg-cp9Tz-30" value="API (REST)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="HymEKk5p5rcyXg-cp9Tz-29">
+          <mxGeometry x="-0.0557" relative="1" as="geometry">
+            <mxPoint y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HymEKk5p5rcyXg-cp9Tz-31" value="Temporal Server" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="320" y="160" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HymEKk5p5rcyXg-cp9Tz-32" value="" style="ellipse;" vertex="1" parent="1">
+          <mxGeometry x="50" y="325" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="HymEKk5p5rcyXg-cp9Tz-35" value="Worker" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="289" width="60" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
