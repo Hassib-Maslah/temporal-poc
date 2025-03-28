@@ -37,6 +37,7 @@ spring:
     workersAutoDiscovery: # Enables automatic discovery of annotated Temporal components (such as workflows, activities, etc.)
       packages: com.example.order # The package to scan for classes annotated with @WorkflowImpl and @ActivityImpl to automatically register them in Temporal
 
+workflow.mode.async: false
 
 api:
   payment-service:

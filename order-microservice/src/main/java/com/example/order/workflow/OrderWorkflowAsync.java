@@ -7,8 +7,11 @@ import io.temporal.workflow.WorkflowInterface;
 import io.temporal.workflow.WorkflowMethod;
 
 @WorkflowInterface
-public interface OrderWorkflow {
+public interface OrderWorkflowAsync {
     @WorkflowMethod
     OrderDTO createOrder(OrderDTO dto);
+
+    @SignalMethod
+    void updateStatus(Status status);
 
 }

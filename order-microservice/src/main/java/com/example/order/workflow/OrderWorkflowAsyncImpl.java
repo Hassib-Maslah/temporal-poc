@@ -17,7 +17,9 @@ import static com.example.order.util.TaskQueueUtil.ORDER_TASK_QUEUE_NAME;
 
 @Slf4j
 @WorkflowImpl(taskQueues = ORDER_TASK_QUEUE_NAME)
-public class OrderWorkflowImpl implements OrderWorkflow {
+public class OrderWorkflowAsyncImpl implements OrderWorkflowAsync {
+
+    private Status status = Status.INITIALIZED;
 
     private final ActivityOptions activityOptions =
             ActivityOptions.newBuilder()
@@ -42,12 +44,19 @@ public class OrderWorkflowImpl implements OrderWorkflow {
         Integer totalPrice = productActivity.handleStock(dto.getProductId(), dto.getQuantity());
         // Do the payment and return total paid amount
         Float totalAmountPaid = paymentActivity.processPayment(dto.getUserId(), totalPrice);
+        Workflow.await(Duration.ofDays(30), () -> !Status.INITIALIZED.equals(status));
         // Save the order
-        dto.setStatus(Status.COMPLETED);
+        dto.setStatus(status);
         dto.setTotalAmount(totalAmountPaid);
         OrderDTO result = orderActivity.saveOrder(dto);
         log.info("OrderWorkflow finished with success");
         return result;
+    }
+
+    @Override
+    public void updateStatus(Status status) {
+        this.status = status;
+        log.info("OrderWorkflow signal received with status {}", status);
     }
 
 }
