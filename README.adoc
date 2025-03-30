@@ -10,7 +10,13 @@ This POC consists of three microservices:
 2. **Payment Microservice**: Handles payment processing and validate and confirm payments.
 3. **Product Microservice**: Manages product inventory and stock.
 
+=== Global Architecture
+
 image::doc/temporal-flow.jpg[]
+
+=== Temporal Architecture
+
+image::doc/temporal-frontend-service.svg[]
 
 == Prerequisites
 - Java 17 or later
