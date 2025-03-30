@@ -1,4 +1,5 @@
 = Spring Boot & Temporal POC
+:toc:
 
 == Overview
 This project demonstrates how to integrate Temporal with a Spring Boot application. Temporal is a durable execution system that manages workflows and activities, ensuring reliable task execution.
